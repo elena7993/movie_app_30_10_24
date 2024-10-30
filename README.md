@@ -1,7 +1,7 @@
 # Work List
 
 - [x] Router 설정
-- [] 각 폴더, 파일등 구성
+- [x] 각 폴더, 파일등 구성
 - [] api 설정
 - [] Loading, Header, Footer 글로벌 컴포넌트 구성
 - [] 웹폰트 설정
