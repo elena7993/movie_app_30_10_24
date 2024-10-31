@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 // import { useEffect as changeName } from "react";
 // =>as를 사용해서 이름을 바꿔줄 수 있다
-import { nowPlaying, popular } from "../../api";
+import { nowPlaying, popular, topRated, upComming } from "../../api";
 
 const Home = () => {
   const [nowData, setNowData] = useState();
   const [popData, setPopData] = useState();
+  const [topData, setRateData] = useState();
+  const [upData, setUpCommingData] = useState();
 
   useEffect(() => {
     (async () => {
@@ -16,9 +18,13 @@ const Home = () => {
         const { results: pop } = await popular();
         // console.log("현재상영" + nowData);
         // console.log("인기영화" + popData);
+        const { results: top } = await topRated();
+        const { results: up } = await upComming();
 
         setNowData(now);
         setPopData(pop);
+        setRateData(top);
+        setUpCommingData(up);
       } catch (error) {
         console.log(error);
       }
@@ -27,6 +33,8 @@ const Home = () => {
 
   console.log(nowData);
   console.log(popData);
+  console.log(topData);
+  console.log(upData);
 
   return <div>Home</div>;
 };

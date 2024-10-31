@@ -23,7 +23,13 @@ export const nowPlaying = () =>
 export const popular = () =>
   fetch(url("movie/popular"), options).then((res) => res.json());
 
-// fetch로 요청->url과 options
+export const topRated = () =>
+  fetch(url("movie/top_rated"), options).then((res) => res.json());
+
+export const upComming = () =>
+  fetch(url("movie/upcoming"), options).then((res) => res.json());
+
+// fetch로 요청->url과 option
 
 // then((res) => res.json());
 // 받아온 것들을 json형식으로 가공
