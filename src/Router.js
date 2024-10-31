@@ -7,6 +7,7 @@ import PageNotFound from "./pages/PageNotFound";
 const Router = () => {
   return (
     <HashRouter>
+      <Headers />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
