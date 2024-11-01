@@ -20,3 +20,4 @@
 - [] helmet-async
 - [] react icons
 - [x] npm i node-fetch
+- [x] npm i react-spinners
