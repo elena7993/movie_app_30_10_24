@@ -18,6 +18,7 @@ const MainBanner = styled.section`
 `;
 
 const TitleWrap = styled.div`
+  width: 100%;
   position: absolute;
   bottom: 150px;
   left: 0;
@@ -35,6 +36,17 @@ const TitleWrap = styled.div`
     /* =>문단의 색상을 잡아주기 위해서 오퍼시티를 넣음 */
     /* =>강조하는 타이틀을 살리기 위해 문단은 죽임 */
   }
+  @media screen and (min-width: 450px) {
+    width: 60%;
+    padding: 0 ${mainStyle.pcPadding};
+    h3 {
+      font-size: 50px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
 `;
 
 const Home = () => {
@@ -42,6 +54,7 @@ const Home = () => {
   const [popData, setPopData] = useState();
   const [topData, setRateData] = useState();
   const [upData, setUpCommingData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -59,6 +72,7 @@ const Home = () => {
         setPopData(pop);
         setRateData(top);
         setUpCommingData(up);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -72,12 +86,16 @@ const Home = () => {
 
   return (
     <div>
-      <MainBanner $coverImg={nowData[0].backdrop_path}>
-        <TitleWrap>
-          <h3>{nowData[0]?.title}</h3>
-          <p>{nowData[0]?.overview.slice(0, 100) + "..."}</p>
-        </TitleWrap>
-      </MainBanner>
+      {isLoading ? (
+        "loading..."
+      ) : (
+        <MainBanner $coverImg={nowData[0].backdrop_path}>
+          <TitleWrap>
+            <h3>{nowData[0]?.title}</h3>
+            <p>{nowData[0]?.overview.slice(0, 100) + "..."}</p>
+          </TitleWrap>
+        </MainBanner>
+      )}
     </div>
   );
 };
