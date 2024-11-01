@@ -14,7 +14,7 @@
 - [x] npm i react-router-dom
 - [x] npm i styled-reset
 - [x] npm i styled-components
-- [] swiper
+- [x] npm i swiper
 - [x] font-awesome
 - [x] npm i react-hook-form
 - [] helmet-async
