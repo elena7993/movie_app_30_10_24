@@ -13,21 +13,7 @@ import { mainStyle } from "../../GlobalStyled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import styled from "styled-components";
-
-const Container = styled.section`
-  padding: 0 ${mainStyle.moPadding};
-  @media screen and (min-width: 450px) {
-    padding: 0 ${mainStyle.pcPadding};
-  }
-`;
-
-const Title = styled.div`
-  margin: 50px 0;
-  font-size: 24px;
-  font-weight: 400;
-`;
-
-const Con = styled.div``;
+import Movies from "./components/Movies";
 
 const Home = () => {
   const [nowData, setNowData] = useState();
@@ -59,30 +45,10 @@ const Home = () => {
     })();
   }, []);
 
-  console.log(nowData);
+  // console.log(nowData);
   // console.log(popData);
   // console.log(topData);
   // console.log(upData);
-
-  const params = {
-    spaceBetween: 10,
-    slidesPerView: 3.3,
-    breakpoints: {
-      1024: {
-        spaceBetween: 20,
-        slidesPerView: 5.5,
-      },
-
-      640: {
-        spaceBetween: 15,
-        slidesPerView: 4.5,
-      },
-      320: {
-        spaceBetween: 10,
-        slidesPerView: 3.3,
-      },
-    },
-  };
 
   return (
     <div>
@@ -93,25 +59,12 @@ const Home = () => {
           {nowData && (
             <div>
               <Banner data={nowData} />
-              <Container>
-                <Title>현재 상영중</Title>
-                <Swiper {...params}>
-                  {nowData.map((movie) => (
-                    <SwiperSlide key={movie.id}>
-                      <Con>
-                        <Link to={`/detail/${movie.id}`}>
-                          <img
-                            src={W500_URL + movie.poster_path}
-                            alt={movie.title}
-                          />
-                        </Link>
-                      </Con>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </Container>
+              <Movies title="현재 상영중" data={nowData} />
             </div>
           )}
+          {popData && <Movies title="인기 영화" data={popData} />}
+          {topData && <Movies title="평점 높은 영화" data={topData} />}
+          {upData && <Movies title="개봉 예정 영화" data={upData} />}
         </>
       )}
     </div>
