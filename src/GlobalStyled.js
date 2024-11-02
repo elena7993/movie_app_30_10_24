@@ -16,7 +16,7 @@ ${reset}
 body{
   font-family: "Noto Sans", sans-serif;
   letter-spacing: -1px;
-  background-color: #dbdbdb;
+  background-color: #000;
 }
 
 img{

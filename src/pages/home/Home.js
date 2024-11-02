@@ -59,9 +59,10 @@ const Home = () => {
           {nowData && (
             <div>
               <Banner data={nowData} />
-              <Movies title="현재 상영중" data={nowData} />
             </div>
           )}
+
+          {nowData && <Movies title="현재 상영 영화" data={nowData} />}
           {popData && <Movies title="인기 영화" data={popData} />}
           {topData && <Movies title="평점 높은 영화" data={topData} />}
           {upData && <Movies title="개봉 예정 영화" data={upData} />}

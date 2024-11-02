@@ -10,15 +10,22 @@ const Container = styled.section`
   @media screen and (min-width: 450px) {
     padding: 0 ${mainStyle.pcPadding};
   }
+  color: #fff;
 `;
 
 const Title = styled.div`
-  margin: 50px 0;
-  font-size: 24px;
-  font-weight: 400;
+  margin: 50px 0 20px 0;
+  font-size: 22px;
+  font-weight: 600;
 `;
 
-const Con = styled.div``;
+const Con = styled.div`
+  width: 260px;
+  height: 372px;
+  img {
+    object-fit: cover;
+  }
+`;
 
 const params = {
   spaceBetween: 10,
