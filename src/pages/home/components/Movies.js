@@ -20,10 +20,14 @@ const Title = styled.div`
 `;
 
 const Con = styled.div`
-  width: 260px;
-  height: 372px;
+  width: 100%;
+  /* height: 372px; */
+  aspect-ratio: 2/3;
+  overflow: hidden;
   img {
     object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 `;
 

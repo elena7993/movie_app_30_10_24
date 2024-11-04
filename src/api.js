@@ -29,6 +29,9 @@ export const topRated = () =>
 export const upComming = () =>
   fetch(url("movie/upcoming"), options).then((res) => res.json());
 
+export const movieDetail = (id) =>
+  fetch(url(`movie/${id}`), options).then((res) => res.json());
+
 // fetch로 요청->url과 option
 
 // then((res) => res.json());
