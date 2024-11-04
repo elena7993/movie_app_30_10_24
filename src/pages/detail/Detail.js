@@ -64,9 +64,9 @@ const Detail = () => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [id]);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
