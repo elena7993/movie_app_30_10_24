@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { mainStyle } from "../../GlobalStyled";
 import Loading from "../../components/Loading";
 import { ORIGINAL_URL } from "../../constant/imgUrl";
+import { Helmet } from "react-helmet-async";
+import PageTitle from "../../components/PageTitle";
 
 const Container = styled.section`
   padding: 100px ${mainStyle.pcPadding};
@@ -73,24 +75,27 @@ const Detail = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Container>
-          <Bg
-            style={{
-              background: `url(${ORIGINAL_URL}${data.poster_path}) no-repeat center / cover`,
-            }}
-          />
-          <TitileWrap>
-            <h3>{data.title}</h3>
-            <span>{Math.round(data.vote_average)}점</span> /{" "}
-            <span>{data.runtime}분</span> / <span>{data.release_date}</span>
-            <ul>
-              {data.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
-            <p>{data.overview}</p>
-          </TitileWrap>
-        </Container>
+        <>
+          <PageTitle title={data?.title} />
+          <Container>
+            <Bg
+              style={{
+                background: `url(${ORIGINAL_URL}${data.poster_path}) no-repeat center / cover`,
+              }}
+            />
+            <TitileWrap>
+              <h3>{data.title}</h3>
+              <span>{Math.round(data.vote_average)}점</span> /{" "}
+              <span>{data.runtime}분</span> / <span>{data.release_date}</span>
+              <ul>
+                {data.genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </ul>
+              <p>{data.overview}</p>
+            </TitileWrap>
+          </Container>
+        </>
       )}
     </>
   );

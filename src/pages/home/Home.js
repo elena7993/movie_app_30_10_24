@@ -7,13 +7,15 @@ import { nowPlaying, popular, topRated, upComming } from "../../api";
 // import { ORIGINAL_URL } from "../../constant/imgUrl";
 import Loading from "../../components/Loading";
 import Banner from "./components/Banner";
-import { Link } from "react-router-dom";
-import { W500_URL } from "../../constant/imgUrl";
-import { mainStyle } from "../../GlobalStyled";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Link } from "react-router-dom";
+// import { W500_URL } from "../../constant/imgUrl";
+// import { mainStyle } from "../../GlobalStyled";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Movies from "./components/Movies";
+// import { Helmet } from "react-helmet-async";
+import PageTitle from "../../components/PageTitle";
 
 const Home = () => {
   const [nowData, setNowData] = useState();
@@ -56,6 +58,10 @@ const Home = () => {
         <Loading />
       ) : (
         <>
+          {/* <Helmet>
+            <title>HOME | PNFLIEX</title>
+          </Helmet> */}
+          <PageTitle title={"HOME"} />
           {nowData && (
             <div>
               <Banner data={nowData} />
@@ -98,3 +104,5 @@ export default Home;
 // } catch (error) {
 
 // }
+
+// 영화 포스터에 no img 찾아서 넣어볼 것
