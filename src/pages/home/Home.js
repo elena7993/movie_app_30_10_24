@@ -16,6 +16,7 @@ import "swiper/css";
 import Movies from "./components/Movies";
 // import { Helmet } from "react-helmet-async";
 import PageTitle from "../../components/PageTitle";
+import useScrollTop from "../../lib/useScrollTop";
 
 const Home = () => {
   const [nowData, setNowData] = useState();
@@ -23,6 +24,7 @@ const Home = () => {
   const [topData, setRateData] = useState();
   const [upData, setUpCommingData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  useScrollTop();
 
   useEffect(() => {
     (async () => {

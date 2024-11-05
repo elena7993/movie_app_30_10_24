@@ -8,6 +8,7 @@ import { ORIGINAL_URL } from "../../constant/imgUrl";
 import { Helmet } from "react-helmet-async";
 import PageTitle from "../../components/PageTitle";
 import Wrapper from "../../components/Wrapper";
+import useScrollTop from "../../lib/useScrollTop";
 
 const Container = styled.section`
   display: flex;
@@ -55,6 +56,7 @@ const Detail = () => {
   // console.log(id);
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  useScrollTop();
 
   useEffect(() => {
     (async () => {

@@ -5,6 +5,7 @@ import Wrapper from "../../components/Wrapper";
 import { useState } from "react";
 import { NOIMG_URL, W500_URL } from "../../constant/imgUrl";
 import { searchMovie } from "../../api";
+import PageTitle from "../../components/PageTitle";
 
 const Form = styled.form`
   input {
@@ -59,42 +60,45 @@ const Search = () => {
       const { results } = await searchMovie(keyword);
       setTerm(results);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
   console.log(term);
 
   return (
-    <Wrapper>
-      <Form onSubmit={handleSubmit(onSearch)}>
-        <input
-          {...register("search", {
-            required: "영화 제목은 필수입니다!",
-          })}
-          type="text"
-          placeholder="영화 제목"
-        />
-      </Form>
+    <>
+      <PageTitle title={"SEARCH"} />
+      <Wrapper>
+        <Form onSubmit={handleSubmit(onSearch)}>
+          <input
+            {...register("search", {
+              required: "영화 제목은 필수입니다!",
+            })}
+            type="text"
+            placeholder="영화 제목"
+          />
+        </Form>
 
-      {term && (
-        <ConWrap>
-          {term.map((data) => (
-            <Con key={data.id}>
-              <Link to={`/detail/${data.id}`}>
-                <img
-                  src={
-                    data.poster_path ? W500_URL + data.poster_path : NOIMG_URL
-                  }
-                  alt={data.title}
-                />
-                <h3>{data.title}</h3>
-              </Link>
-            </Con>
-          ))}
-        </ConWrap>
-      )}
-    </Wrapper>
+        {term && (
+          <ConWrap>
+            {term.map((data) => (
+              <Con key={data.id}>
+                <Link to={`/detail/${data.id}`}>
+                  <img
+                    src={
+                      data.poster_path ? W500_URL + data.poster_path : NOIMG_URL
+                    }
+                    alt={data.title}
+                  />
+                  <h3>{data.title}</h3>
+                </Link>
+              </Con>
+            ))}
+          </ConWrap>
+        )}
+      </Wrapper>
+    </>
   );
 };
 
