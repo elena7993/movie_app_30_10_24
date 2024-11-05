@@ -17,6 +17,7 @@ body{
   font-family: "Noto Sans", sans-serif;
   letter-spacing: -1px;
   background-color: #000;
+  color: #fff;
 }
 
 img{
