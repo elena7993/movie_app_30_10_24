@@ -22,3 +22,8 @@
 - [] react icons
 - [x] npm i node-fetch
 - [x] npm i react-spinners
+- [x] npm install gh-pages --save-dev
+
+#배포
+=>다른 사람이 내 앱을 볼 수 있음
+=>깃허브에 배포하기
