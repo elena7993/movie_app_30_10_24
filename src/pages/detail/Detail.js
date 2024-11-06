@@ -4,7 +4,7 @@ import { movieDetail } from "../../api";
 import styled from "styled-components";
 import { mainStyle } from "../../GlobalStyled";
 import Loading from "../../components/Loading";
-import { ORIGINAL_URL } from "../../constant/imgUrl";
+import { NOIMG_URL, ORIGINAL_URL, W500_URL } from "../../constant/imgUrl";
 import { Helmet } from "react-helmet-async";
 import PageTitle from "../../components/PageTitle";
 import Wrapper from "../../components/Wrapper";
@@ -83,7 +83,9 @@ const Detail = () => {
             <Container>
               <Bg
                 style={{
-                  background: `url(${ORIGINAL_URL}${data.poster_path}) no-repeat center / cover`,
+                  background: `url(${
+                    data.poster_path ? W500_URL + data.poster_path : NOIMG_URL
+                  }) no-repeat center / cover`,
                 }}
               />
               <TitileWrap>
